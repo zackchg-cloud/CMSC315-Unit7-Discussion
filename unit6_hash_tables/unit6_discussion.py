@@ -2,20 +2,27 @@
 ====================================================
 UNIT 6 DISCUSSION: Python Dictionaries as Hash Tables
 ====================================================
+
+This program demonstrates how Python dictionaries function
+as hash tables by showing insert, lookup, update, delete,
+and edge-case operations.
 """
 
+
 def main():
+
     print("=== UNIT 6: DICTIONARIES AS HASH TABLES ===")
 
     # ===============================
-    # TODO (Student): CREATE A HASH TABLE
+    # CREATE A HASH TABLE
     # ===============================
 
     print("\n=== INSERT OPERATIONS ===")
 
     # Python dictionaries function as hash tables.
-    # Keys are hashed to determine where values are stored.
-    # This provides very fast average-case lookup performance.
+    # Each key is processed using a hash function.
+    # The resulting hash helps Python quickly locate
+    # the associated value.
 
     inventory = {}
 
@@ -25,69 +32,83 @@ def main():
     inventory["K400"] = "Keyboard"
     inventory["T500"] = "Tablet"
 
-    print("Inventory:")
+    print("\nInventory:")
     print(inventory)
 
     # ===============================
-    # TODO (Student): LOOKUP OPERATIONS
+    # LOOKUP OPERATIONS
     # ===============================
 
     print("\n=== LOOKUP OPERATIONS ===")
 
-    # Lookup uses the key's hash value to quickly locate data.
-    print("L100:", inventory["L100"])
+    # Dictionary lookups use the key's hash value
+    # to retrieve data efficiently.
+
+    print("\nL100:", inventory["L100"])
     print("P200:", inventory["P200"])
 
     # ===============================
-    # TODO (Student): UPDATE OPERATIONS
+    # UPDATE OPERATIONS
     # ===============================
 
     print("\n=== UPDATE OPERATIONS ===")
 
-    print("Before update:")
+    print("\nBefore update:")
     print(inventory)
 
-    # Assigning a new value to an existing key updates that entry.
+    # Assigning a new value to an existing key
+    # replaces the previous value.
+
     inventory["L100"] = "Gaming Laptop"
 
-    print("After update:")
+    print("\nAfter update:")
     print(inventory)
 
     # ===============================
-    # TODO (Student): DELETE OPERATIONS
+    # DELETE OPERATIONS
     # ===============================
 
     print("\n=== DELETE OPERATIONS ===")
 
-    print("Before delete:")
+    print("\nBefore delete:")
     print(inventory)
 
-    # Removing a key deletes its associated value.
+    # Deleting a key removes the key-value pair
+    # from the dictionary.
+
     del inventory["K400"]
 
-    print("After delete:")
+    print("\nAfter delete:")
     print(inventory)
 
     # ===============================
-    # TODO (Student): EDGE CASES
+    # EDGE CASES
     # ===============================
 
     print("\n=== EDGE CASES ===")
 
-    # Edge Case 1: Lookup a missing key safely
-    print("Missing key lookup:")
+    # Edge Case 1:
+    # Lookup of a missing key using get()
+    # prevents a KeyError.
+
+    print("\nMissing key lookup:")
     print(inventory.get("X999", "Equipment not found"))
 
-    # Edge Case 2: Safe deletion
+    # Edge Case 2:
+    # Safe deletion of a missing key using pop()
+    # with a default value.
+
     removed = inventory.pop("X999", None)
 
     if removed is None:
-        print("Attempted delete of missing key handled safely.")
+        print("\nAttempted delete of missing key handled safely.")
 
-    # Edge Case 3: Empty dictionary
+    # Edge Case 3:
+    # Demonstrate an empty dictionary.
+
     empty_inventory = {}
 
-    print("Empty dictionary:")
+    print("\nEmpty dictionary:")
     print(empty_inventory)
 
 
